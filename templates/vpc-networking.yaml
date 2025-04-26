@@ -10,3 +10,36 @@ Resources:
          Value: dev
        - Key: author
          Value: Kostas Makedos
+  public-01a:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref myVPC
+      CidrBlock: 10.0.0.0/24
+      AvailabilityZone: "eu-central-1a"
+      Tags:
+      - Key: env
+        Value: dev
+      - Key: author
+        Value: Kostas Makedos
+  public-01b:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref myVPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: "eu-central-1b"
+      Tags:
+      - Key: env
+        Value: dev
+      - Key: author
+        Value: Kostas Makedos
+  public-01c:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref myVPC
+      CidrBlock: 10.0.2.0/24
+      AvailabilityZone: "eu-central-1c"
+      Tags:
+      - Key: env
+        Value: dev
+      - Key: author
+        Value: Kostas Makedos
