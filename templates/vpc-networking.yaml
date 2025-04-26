@@ -10,7 +10,7 @@ Resources:
          Value: dev
        - Key: author
          Value: Kostas Makedos
-  public-01a:
+  public01a:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref myVPC
@@ -21,7 +21,7 @@ Resources:
         Value: dev
       - Key: author
         Value: Kostas Makedos
-  public-01b:
+  public01b:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref myVPC
@@ -32,7 +32,7 @@ Resources:
         Value: dev
       - Key: author
         Value: Kostas Makedos
-  public-01c:
+  public01c:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref myVPC
@@ -43,3 +43,53 @@ Resources:
         Value: dev
       - Key: author
         Value: Kostas Makedos
+  myInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+      - Key: env
+        Value: dev
+      - Key: author
+        Value: Kostas Makedos
+  myRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:  
+        Ref: myVPC
+      Tags:
+      - Key: env
+        Value: dev
+      - Key: author
+        Value: Kostas Makedos
+  myRoute:
+    Type: AWS::EC2::Route
+    DependsOn: myInternetGateway
+    Properties:
+       RouteTableId:
+         Ref: myRouteTable
+       DestinationCidrBlock: 0.0.0.0/0
+       GatewayId:
+         Ref: myInternetGateway
+  public01aRTBAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: public01a
+      RouteTableId:
+        Ref: myRouteTable
+  public01bRTBAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: public01b
+      RouteTableId:
+        Ref: myRouteTable
+  public01cRTBAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: public01c
+      RouteTableId:
+        Ref: myRouteTable
+
+

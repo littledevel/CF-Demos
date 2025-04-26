@@ -1,0 +1,6 @@
+Resources:
+  PersonalKeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: Personal
+      PublicKeyMaterial: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDPD50GXLwtS+OmY16PapJACC+FdWZ/vqSlk9RV7jeEv2aCVBqBcdJCSuIqE1Wsagmqb0Fx5MYYR9lPapJNNvdp67hgRaL7EnmvFJlhqeQ7wwQrsQKedW8qa5DwszRbdg1BP3u58KdgQAEwhX3BEPhVGy5CBJrVRZgelBK82in/hdJeGzAZTNLWK2j2lD5+kZaGNL1A0QGFQLM8rlom2i74kBgLGDvRSNB5ivB84INeGAEDOImf28YOOpN8ehhoWBdK3hVxms7+I9uZU3pAJEtrCGlhh/jfr04ovbbxVVNyFoesYP/D6Jp+hBNQjDErOU+tqrS3SBDCiaNMeONyH/r3x4dIT27bLV+i/KP1Vm1rm7UJpny0bBVH5DcDCvWkf169lqHbchnzstV7AgM23ZIc1I1HjM1dTsvi20AXJ75qoxmQkV8kvuqCfc+ckpF1u8wbw0B/y15VXkoEPKI4MQ1fY+GbqTp8bSTxthlVRV7wWFFnE0ovbugGRrRywdXrbrE= kostas@HPZ600
