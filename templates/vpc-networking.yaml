@@ -51,6 +51,14 @@ Resources:
         Value: dev
       - Key: author
         Value: Kostas Makedos
+
+  IGWAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: myVPC
+      InternetGatewayId:
+        Ref: myInternetGateway
   myRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -61,6 +69,20 @@ Resources:
         Value: dev
       - Key: author
         Value: Kostas Makedos
+  IgwRtbAssoc:
+    Type: AWS::EC2::GatewayRouteTableAssociation
+    Properties:
+      GatewayId: myInternetGateway
+      RouteTableId: myRouteTable
+  DefaultPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: IGWAttachment
+    Properties:
+      RouteTableId:
+        Ref: myRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: myInternetGateway
   myRoute:
     Type: AWS::EC2::Route
     DependsOn: myInternetGateway
